@@ -12,6 +12,3 @@ C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\obj\Debug\netc
 C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\obj\Debug\netcoreapp2.2\bProject_ASPNET.RazorTargetAssemblyInfo.cache
 C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\obj\Debug\netcoreapp2.2\bProject_ASPNET.dll
 C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\obj\Debug\netcoreapp2.2\bProject_ASPNET.pdb
-C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\bin\Debug\netcoreapp2.2\appsettings.Development.json
-C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\bin\Debug\netcoreapp2.2\appsettings.json
-C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
