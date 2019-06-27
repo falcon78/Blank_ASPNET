@@ -1,0 +1,17 @@
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\bin\Debug\netcoreapp2.2\bProject_ASPNET.deps.json
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\bin\Debug\netcoreapp2.2\bProject_ASPNET.runtimeconfig.json
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\bin\Debug\netcoreapp2.2\bProject_ASPNET.runtimeconfig.dev.json
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\bin\Debug\netcoreapp2.2\bProject_ASPNET.dll
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\bin\Debug\netcoreapp2.2\bProject_ASPNET.pdb
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\obj\Debug\netcoreapp2.2\bProject_ASPNET.csprojAssemblyReference.cache
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\obj\Debug\netcoreapp2.2\bProject_ASPNET.csproj.CoreCompileInputs.cache
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\obj\Debug\netcoreapp2.2\bProject_ASPNET.RazorAssemblyInfo.cache
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\obj\Debug\netcoreapp2.2\bProject_ASPNET.RazorAssemblyInfo.cs
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\obj\Debug\netcoreapp2.2\bProject_ASPNET.AssemblyInfoInputs.cache
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\obj\Debug\netcoreapp2.2\bProject_ASPNET.AssemblyInfo.cs
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\obj\Debug\netcoreapp2.2\bProject_ASPNET.RazorTargetAssemblyInfo.cache
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\obj\Debug\netcoreapp2.2\bProject_ASPNET.dll
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\obj\Debug\netcoreapp2.2\bProject_ASPNET.pdb
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Users\KHATRISUJAN\source\repos\bProject_ASPNET\bProject_ASPNET\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
