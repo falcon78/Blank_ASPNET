@@ -34,13 +34,37 @@ namespace bProject_ASPNET
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                DeveloperExceptionPageOptions devOptions = new DeveloperExceptionPageOptions
+                {
+                    SourceCodeLineCount = 10
+                };
+                app.UseDeveloperExceptionPage(devOptions);
             }
+
+            // There is a better way to do this
+            /*  
+            DefaultFilesOptions defaultFileOptions = new DefaultFilesOptions();
+            defaultFileOptions.DefaultFileNames.Clear();
+            defaultFileOptions.DefaultFileNames.Add("foo.html");
+            
+
+            // https://csharp-video-tutorials.blogspot.com/2019/01/static-files-in-aspnet-core.html
+            // rewrite root url to default file url, but the client sees the root url on browser 
+            app.UseDefaultFiles(defaultFileOptions);
+
+            // Static file middleware, serves static files located in wwwroot folder according to file path and names
+            app.UseStaticFiles();
+            */
+
+            FileServerOptions fileserveroptions = new FileServerOptions();
+            fileserveroptions.DefaultFilesOptions.DefaultFileNames.Clear();
+            fileserveroptions.DefaultFilesOptions.DefaultFileNames.Add("foo.html");
+            app.UseFileServer(fileserveroptions);
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync(System.Diagnostics.Process.GetCurrentProcess().ProcessName + "what");
-                await context.Response.WriteAsync(_config["MyKey"]);
+                throw new Exception("Some error occured");
+                await context.Response.WriteAsync("Hello");
             });
         }
     }
