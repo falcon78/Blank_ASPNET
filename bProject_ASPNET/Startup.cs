@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using bProject_ASPNET.Models;
 
 namespace bProject_ASPNET
 {
@@ -26,6 +27,8 @@ namespace bProject_ASPNET
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc().AddXmlSerializerFormatters();
+            services.AddSingleton<IUserDatabase, MockUserDatabase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,29 +44,12 @@ namespace bProject_ASPNET
                 app.UseDeveloperExceptionPage(devOptions);
             }
 
-            // There is a better way to do this
-            /*  
-            DefaultFilesOptions defaultFileOptions = new DefaultFilesOptions();
-            defaultFileOptions.DefaultFileNames.Clear();
-            defaultFileOptions.DefaultFileNames.Add("foo.html");
-            
-
-            // https://csharp-video-tutorials.blogspot.com/2019/01/static-files-in-aspnet-core.html
-            // rewrite root url to default file url, but the client sees the root url on browser 
-            app.UseDefaultFiles(defaultFileOptions);
-
-            // Static file middleware, serves static files located in wwwroot folder according to file path and names
             app.UseStaticFiles();
-            */
 
-            FileServerOptions fileserveroptions = new FileServerOptions();
-            fileserveroptions.DefaultFilesOptions.DefaultFileNames.Clear();
-            fileserveroptions.DefaultFilesOptions.DefaultFileNames.Add("foo.html");
-            app.UseFileServer(fileserveroptions);
+            app.UseMvcWithDefaultRoute();
 
             app.Run(async (context) =>
             {
-                throw new Exception("Some error occured");
                 await context.Response.WriteAsync("Hello");
             });
         }
