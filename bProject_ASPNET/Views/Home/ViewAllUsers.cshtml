@@ -1,0 +1,28 @@
+﻿@model IEnumerable<bProject_ASPNET.Models.User>
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                   <tr>
+                       <td>@user.ID</td>
+                       <td>@user.Name</td>
+                       <td>@user.Email</td>
+                   </tr> 
+                }
+            </tbody>
+        </table>
+    </body>
+    </html>

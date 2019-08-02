@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace bProject_ASPNET.Models
 {
-    public class User
+    public interface IUserDatabase
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
+        User GetUser(int id);
+        IEnumerable<User> GetAllUsers();
     }
 }
