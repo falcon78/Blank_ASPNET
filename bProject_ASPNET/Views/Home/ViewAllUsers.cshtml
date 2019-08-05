@@ -1,28 +1,22 @@
-﻿@model IEnumerable<bProject_ASPNET.Models.User>
+﻿@model IEnumerable<User>
 
-    <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title></title>
-    </head>
-    <body>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var user in Model)
-                {
-                   <tr>
-                       <td>@user.ID</td>
-                       <td>@user.Name</td>
-                       <td>@user.Email</td>
-                   </tr> 
-                }
-            </tbody>
-        </table>
-    </body>
-    </html>
+@{
+    ViewBag.Title = "ユーザー情報";
+}
+
+    <div class="card-deck">
+        @foreach (var user in Model)
+        {
+            <div class="card m-3">
+                <div class="card-header">
+                    <h3>@user.Name</h3>
+                </div>
+                <img width="300" class="card-img-top" src="~/img/cat.png" asp-append-version="true" />
+                <div class="card-footer text-center">
+                    <a asp-controller="home" asp-action="staticview" asp-route-id="@user.ID" class="btn btn-primary m-1">View</a>
+                    <a href="#" class="btn btn-primary m-1">Edit</a>
+                    <a href="#" class="btn btn-danger m-1">Delete</a>
+                </div>
+            </div>
+        }
+    </div>

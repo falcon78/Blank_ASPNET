@@ -15,11 +15,14 @@ namespace bProject_ASPNET.Controllers
         {
             _userDatabase = userDatabase;
         }
-        public ObjectResult Index()
+        public ViewResult Index() 
         {
-            User result = _userDatabase.GetUser(1);
-            return new ObjectResult(result);
-        }
+        //    User result = _userDatabase.GetUser(1);
+        //    return new ObjectResult(result);
+            IEnumerable<User> allUsers = _userDatabase.GetAllUsers();
+            return View("ViewAllUsers",allUsers);
+
+       }
         public ViewResult Details()
         {
             User model = _userDatabase.GetUser(1);
@@ -36,11 +39,11 @@ namespace bProject_ASPNET.Controllers
             IEnumerable<User> allUsers = _userDatabase.GetAllUsers();
             return View(allUsers);
         }
-        public ViewResult StaticView()
+        public ViewResult StaticView(int id = 1)
         {
             HomeStaticViewViewModel homeStaticViewViewModel = new HomeStaticViewViewModel()
             {
-                user = _userDatabase.GetUser(1),
+                user = _userDatabase.GetUser(id),
                 PageTitle = "page title"
             };
 
