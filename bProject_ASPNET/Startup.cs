@@ -54,7 +54,7 @@ namespace bProject_ASPNET
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello");
+                await context.Response.WriteAsync("404 Error , Not Found");
             });
         }
     }

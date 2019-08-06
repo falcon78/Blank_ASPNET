@@ -12,9 +12,9 @@ namespace bProject_ASPNET.Models
         {
             _user = new List<User>()
             {
-                new User() { ID = 1, Name = "Infodex", Email = "infodex@user.com" },
-                new User() { ID = 2, Name = "Sujan", Email = "sujan@user.com" },
-                new User() { ID = 3, Name = "User", Email = "user@user.com" },
+                new User() { ID = 1, Name = "Infodex", Email = "infodex@user.com", UserHobby=0 },
+                new User() { ID = 2, Name = "Sujan", Email = "sujan@user.com", UserHobby = 0},
+                new User() { ID = 3, Name = "User", Email = "user@user.com", UserHobby= 0 },
             };
 
         }
