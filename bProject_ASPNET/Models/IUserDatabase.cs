@@ -9,5 +9,7 @@ namespace bProject_ASPNET.Models
     {
         User GetUser(int id);
         IEnumerable<User> GetAllUsers();
+
+        User Add(User user);
     }
 }

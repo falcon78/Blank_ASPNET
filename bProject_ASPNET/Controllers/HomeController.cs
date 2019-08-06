@@ -10,7 +10,7 @@ namespace bProject_ASPNET.Controllers
 {
     public class HomeController : Controller
     {
-        private IUserDatabase _userDatabase; 
+        private readonly IUserDatabase _userDatabase; 
         public HomeController(IUserDatabase userDatabase)
         {
             _userDatabase = userDatabase;
@@ -39,7 +39,7 @@ namespace bProject_ASPNET.Controllers
             IEnumerable<User> allUsers = _userDatabase.GetAllUsers();
             return View(allUsers);
         }
-        public ViewResult StaticView(int id = 1)
+        public ViewResult UserDetails(int id = 1)
         {
             HomeStaticViewViewModel homeStaticViewViewModel = new HomeStaticViewViewModel()
             {
@@ -48,6 +48,23 @@ namespace bProject_ASPNET.Controllers
             };
 
             return View(homeStaticViewViewModel);
+        }
+
+        [HttpGet]
+        public ViewResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public  IActionResult Create (User user)
+        {
+            if (ModelState.IsValid)
+            {
+                User newUser = _userDatabase.Add(user);
+                return RedirectToAction("UserDetails", new { id = newUser.ID });
+            }
+            return View();
         }
 
     }

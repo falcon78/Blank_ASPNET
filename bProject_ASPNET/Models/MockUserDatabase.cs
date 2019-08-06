@@ -19,6 +19,13 @@ namespace bProject_ASPNET.Models
 
         }
 
+        public User Add(User user)
+        {
+            user.ID = _user.Max(e => e.ID) + 1;
+            _user.Add(user);
+            return user;
+        }
+
         public IEnumerable<User> GetAllUsers()
         {
             return _user;
