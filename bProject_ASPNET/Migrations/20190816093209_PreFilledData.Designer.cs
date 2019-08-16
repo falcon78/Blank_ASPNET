@@ -2,14 +2,16 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace bProject_ASPNET.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190816093209_PreFilledData")]
+    partial class PreFilledData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,15 +37,6 @@ namespace bProject_ASPNET.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 3,
-                            Email = "firstuser@gmail.com",
-                            Name = "First User",
-                            UserHobby = 2
-                        });
                 });
 #pragma warning restore 612, 618
         }
