@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using bProject_ASPNET.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace bProject_ASPNET
 {
@@ -27,6 +28,9 @@ namespace bProject_ASPNET
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContextPool<AppDbContext>(
+                options => options.UseSqlServer(
+                    _config.GetConnectionString("UserDBConnedtion")));
             services.AddMvc().AddXmlSerializerFormatters();
             services.AddSingleton<IUserDatabase, MockUserDatabase>();
         }
