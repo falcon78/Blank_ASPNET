@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace bProject_ASPNET.Models
 {
-    public class MockUserDatabase : IUserDatabase
+    public class MockUserDatabase
     {
         private List<User> _user;
         public MockUserDatabase()

@@ -11,5 +11,7 @@ namespace bProject_ASPNET.Models
         IEnumerable<User> GetAllUsers();
 
         User Add(User user);
+        User Update (User userChanges);
+        User Delete(int id);
     }
 }

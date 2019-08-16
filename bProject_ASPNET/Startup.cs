@@ -30,9 +30,9 @@ namespace bProject_ASPNET
         {
             services.AddDbContextPool<AppDbContext>(
                 options => options.UseSqlServer(
-                    _config.GetConnectionString("UserDBConnedtion")));
+                    _config.GetConnectionString("UserDBConnection")));
             services.AddMvc().AddXmlSerializerFormatters();
-            services.AddSingleton<IUserDatabase, MockUserDatabase>();
+            services.AddScoped<IUserDatabase, SqlUserDatabase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
