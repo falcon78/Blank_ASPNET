@@ -101,11 +101,18 @@ namespace bProject_ASPNET.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit (int id)
+        public ViewResult Edit (int id)
         {
-            Employee employee = _userDatabase.GetUser(id){
-
-            }
+            User user = _userDatabase.GetUser(id);
+            UserEditViewModel userEdit = new UserEditViewModel
+            {
+                ID = user.ID,
+                Name = user.Name,
+                Email = user.Name,
+                UserHobby = user.UserHobby,
+                ExistingPhotoPath = user.PhotoPath
+            };
+            return View(userEdit);
         }
 
         
