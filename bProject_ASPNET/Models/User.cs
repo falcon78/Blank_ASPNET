@@ -18,5 +18,7 @@ namespace bProject_ASPNET.Models
         public string Email { get; set; }
         [Required(ErrorMessage ="選択してください。")]
         public Hobby? UserHobby { get; set; }
+
+        public string PhotoPath {get; set;} 
     }
 }

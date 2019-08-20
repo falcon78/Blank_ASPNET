@@ -1,28 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml;
 using Microsoft.AspNetCore.Mvc;
 using bProject_ASPNET.Models;
 using bProject_ASPNET.ViewModels;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting.Internal;
+using Microsoft.AspNetCore.Http;
 
 namespace bProject_ASPNET.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IUserDatabase _userDatabase; 
-        public HomeController(IUserDatabase userDatabase)
+        private readonly IUserDatabase _userDatabase;
+        private readonly IHostingEnvironment hostingEnvironment;
+
+        public HomeController(IUserDatabase userDatabase, IHostingEnvironment hostingEnvironment)
         {
+            this.hostingEnvironment = hostingEnvironment;
             _userDatabase = userDatabase;
         }
-        public ViewResult Index() 
-        {
-        //    User result = _userDatabase.GetUser(1);
-        //    return new ObjectResult(result);
-            IEnumerable<User> allUsers = _userDatabase.GetAllUsers();
-            return View("ViewAllUsers",allUsers);
 
-       }
+        public ViewResult Index()
+        {
+            //    User result = _userDatabase.GetUser(1);
+            //    return new ObjectResult(result);
+            IEnumerable<User> allUsers = _userDatabase.GetAllUsers();
+            return View("ViewAllUsers", allUsers);
+        }
+
         public ViewResult Details()
         {
             User model = _userDatabase.GetUser(1);
@@ -39,6 +49,7 @@ namespace bProject_ASPNET.Controllers
             IEnumerable<User> allUsers = _userDatabase.GetAllUsers();
             return View(allUsers);
         }
+
         public ViewResult UserDetails(int id = 1)
         {
             HomeStaticViewViewModel homeStaticViewViewModel = new HomeStaticViewViewModel()
@@ -57,15 +68,46 @@ namespace bProject_ASPNET.Controllers
         }
 
         [HttpPost]
-        public  IActionResult Create (User user)
+        public IActionResult Create(CreateViewModel user)
         {
             if (ModelState.IsValid)
             {
-                User newUser = _userDatabase.Add(user);
+                string uniqueFileName = null;
+                if (user.Photos != null && user.Photos.Count > 0)
+                {
+                    foreach (IFormFile photo in user.Photos)
+                    {
+                        string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "images");
+                        uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
+                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                        photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                    }
+                }
+
+                User newUser = new User
+                {
+                    Name = user.Name,
+                    Email = user.Email,
+                    UserHobby = user.UserHobby,
+                    PhotoPath = uniqueFileName
+                };
+
+                _userDatabase.Add(newUser);
+
                 return RedirectToAction("UserDetails", new { id = newUser.ID });
             }
+
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Edit (int id)
+        {
+            Employee employee = _userDatabase.GetUser(id){
+
+            }
+        }
+
+        
     }
 }

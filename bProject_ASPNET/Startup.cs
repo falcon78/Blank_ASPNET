@@ -29,7 +29,7 @@ namespace bProject_ASPNET
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<AppDbContext>(
-                options => options.UseSqlServer(
+                options => options.UseSqlite(
                     _config.GetConnectionString("UserDBConnection")));
             services.AddMvc().AddXmlSerializerFormatters();
             services.AddScoped<IUserDatabase, SqlUserDatabase>();
